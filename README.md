@@ -25,7 +25,7 @@ If server is not active type this command in shell to activate it
 >>> sudo service redis start 
 ```
 ## Important settings 
-Update **settings.py** file and change following values as per requirments to configure the project
+Update **settings.py** file and change following values as per requirements to configure the project
 Email Configuration
 * **EMAIL_HOST** : Default is *'smtp.gmail.com'*
 * **EMAIL_HOST_USER** : Default is  *'youremail@gmail.com'*
