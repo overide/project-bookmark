@@ -44,6 +44,15 @@ After installing all dependencies and configuration you can run the project at l
 ```
 Access the project at **127.0.0.1:8000**
 
+## Usages
+1. Drag **Bookmark it** button to your browser bookmark toolbar
+2. To bookmark images from other websites, click on that **Bookmark it** in your bookmark toolbar
+3. Click on selected image to bookmark it
+
+## Notes
+* If you are running this project in localhost, for **https** websites, our application might not work.
+* In settings.py DEBUG is True, if you are not running this project in development environment, set it to False
+
 ## Project Snapshots
 * **Dashboard**
 ![alt text](https://github.com/overide/project-bookmark/blob/master/project_snapshots/bmark_dashboard.png "Dashboard")
@@ -59,3 +68,5 @@ Access the project at **127.0.0.1:8000**
 
 * **Image Detail**
 ![alt text](https://github.com/overide/project-bookmark/blob/master/project_snapshots/bmark_image_detail.png "Image Detail")
+
+Image credits : http://poolga.com
