@@ -1,5 +1,5 @@
 # Bookmark
-It is a webapp which will let you save/bookmark images from different website to your account and share with your followers
+It is a webapp which will let you save/bookmark images from different websites to your account and share them with your followers
 
 ## Apps
 Following apps are installed in project - 
@@ -7,14 +7,14 @@ Following apps are installed in project -
 * **Account** : Manages authentication etc.
 * **Action** : Manage user actions
 
-## Requirments
+## Requirements
 Before running project make sure you have installed all the dependencies.
 
-1. First move to the directory which have *requirment.txt* file
+1. First move to the directory which have *requirement.txt* file
 2. Activate your virtual environment (optional)
 3. Run following command 
 ```
->>> pip install -r requirments.txt
+>>> pip install -r requirements.txt
 ```
 Make sure your **redis** server is up and running. To check status of redis server type following command in shell in **Ubuntu**
 ```
