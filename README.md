@@ -38,7 +38,7 @@ Redis Configuration
 * **REDIS_DB** : Default is *0*
 
 ## Running project
-After installing all dependencies and configuration you can run the project at localhost by typing following comma - 
+After installing all dependencies and configuration you can run the project at localhost by typing following commands - 
 ```
 >>> python manage.py runserver
 ```
