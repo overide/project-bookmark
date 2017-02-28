@@ -37,9 +37,25 @@ Redis Configuration
 * **REDIS_PORT** : Default is  *6379*
 * **REDIS_DB** : Default is *0*
 
-## Running projectfjbfbf
+## Running project
 After installing all dependencies and configuration you can run the project at localhost by typing following comma - 
 ```
-Access the project at **127.0.0.1:8000**
 >>> python manage.py runserver
 ```
+Access the project at **127.0.0.1:8000**
+
+## Project Snapshots
+* **Dashboard**
+![alt text](https://github.com/overide/project-bookmark/blob/master/project_snapshots/bmark_dashboard.png "Dashboard")
+
+* **Bookmarklet**
+![alt text](https://github.com/overide/project-bookmark/blob/master/project_snapshots/bmark_bookmarklet.png "Bookmarklet")
+
+* **Bookmarked Images**
+![alt text](https://github.com/overide/project-bookmark/blob/master/project_snapshots/bmark_images.png "Bookmarked Images")
+
+* **People Detail**
+![alt text](https://github.com/overide/project-bookmark/blob/master/project_snapshots/bmark_people_detail.png "People Detail")
+
+* **Image Detail**
+![alt text](https://github.com/overide/project-bookmark/blob/master/project_snapshots/bmark_image_detail.png "Image Detail")
