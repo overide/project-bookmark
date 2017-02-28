@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}{{image.title}}{% endblock %}
+
+{% block domready %}
+	$('a.like').click(function(event){
+		event.preventDefault();
+		$.post({
+			url:'{% url 'images:like' %}',
+			data:{
+				id:$(this).data('id'),
+				action:$(this).data('action')
+			},
+			dataType: 'json',
+			success:function(data){
+				if (data['status']=='ok'){
+					prev_action = $('a.like').data('action');
+					//togle data-action
+					$('a.like').data('action',prev_action=='like'?'unlike':'like');
+					//toggle inner text
+					$('a.like').text(prev_action=='like'?'Unlike':'Like');
+					//update total likes
+					prev_likes = parseInt($('#likes_count').text());
+					$('#likes_count').text(prev_action == 'like'?prev_likes+1:prev_likes-1);
+				}
+			}
+		});
+	});
+
+{% endblock %}
+
+{% block content %}
+	<h1>{{ image.title }}</h1>
+	{% load thumbnail %}
+	{% thumbnail image.image "300x300" as im %}
+		<a  href="{{ image.image.url }}">
+			<img src="{{ im.url}}" class="image-detail">
+		</a>
+	{% endthumbnail %}
+
+	{% with total_likes=image.user_like.count  users_like=image.user_like.all%}
+		<div class="image-info">
+			<div>
+				<span class="count">
+					<span class="total" id="likes_count">{{total_likes}}</span> 
+					like{{total_likes|pluralize}}
+				</span>
+				<span class="count">
+					<span class="total">{{ total_views }}</span>
+					view{{total_views|pluralize}}
+				</span>
+				<a href="#" data-id="{{image.id}}" data-action="{% if request.user in users_like %}un{% endif %}like" class="like button">
+				{% if request.user not in users_like %}
+					Like
+				{% else %}
+					Unlike
+				{% endif %}
+				</a>
+			</div>
+			{{ image.description|linebreaks }}
+		</div>
+		<div class="image-likes">
+			{% for user in image.user_like.all %}
+				<div>
+					<img src="{{user.profile.photo.url}}">
+					<p>{{ user.first_name }}</p>
+				</div>
+			{% empty %}
+				Nobody likes it yet!
+			{% endfor %}
+		</div>
+	{% endwith %}
+{% endblock %}

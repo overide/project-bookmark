@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block domready %}
+	var page = 1;
+	var empty_page = false;
+	var block_request = false;
+	$(window).scroll(function(){
+		var margin = $(document).height() - $(window).height()-200;
+		if($(window).scrollTop() > margin && empty_page == false && block_request == false){
+			block_request = true;
+			page += 1;
+			$.get('?page='+page,function(data){
+				if(data == ''){
+					empty_page = true;
+				}else{
+					block_request = false;
+					$('#action-list').append(data);
+				}
+			});
+		}
+
+	});
+{% endblock %}
+
+{% block content %}
+	<h1>Dashboard</h1>
+	{% with total_images_created=request.user.images_created.count %}
+		<p>Welcome to your dashboard.You have bookmarked {{ total_images_created }}
+		image{{ total_images_created|pluralize }}.</p>
+	{% endwith %}
+
+	<p>Drag the following button to your bookmark toolbar to bookmark
+	images from the other websites --> <a href = "javascript:{% include 'images/js/bookmarklet_launcher.js' %}"
+	class="button">Bookmark it</a></p>
+	<h2>What's happening</h2>
+	<div id="action-list">
+		{% include "actions/action/detail.html" with actions=actions %}
+	</div>
+{% endblock %}
